@@ -20,3 +20,4 @@ Route::post('/categorycreate',[PostCategoryController::class,'store']);
 Route::put('/categoryupdate/{category}',[PostCategoryController::class,'update']);
 Route::delete('/categorydelete/{category}',[PostCategoryController::class,'delete']);
 Route::get('post',[PostController::class,'index']);
+Route::post('postcreate',[PostController::class,'store']);
