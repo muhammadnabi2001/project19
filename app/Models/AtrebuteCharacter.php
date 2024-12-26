@@ -10,4 +10,12 @@ class AtrebuteCharacter extends Model
         'atrebute_id',
         'character_id'
     ];
+    public function atrebutes()
+    {
+        return $this->belongsTo(Atrebute::class,'atrebute_id');
+    }
+    public function characters()
+    {
+        return $this->belongsTo(Character::class,'character_id');
+    }
 }
