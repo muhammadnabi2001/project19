@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductRescource;
 use App\Models\AtrebuteCharacter;
 use App\Models\Character;
 use App\Models\Element;
@@ -53,7 +54,7 @@ class ProductController extends Controller
     }
     public function show()
     {
-        
-        return response()->json('success12');
+        $Products=Product::all();
+        return ProductRescource::collection($Products);
     }
 }

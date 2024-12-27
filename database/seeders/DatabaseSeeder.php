@@ -20,48 +20,57 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-        for ($i=1; $i <=10; $i++) { 
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        //     'role' => 'moderator'
+        // ]);
+        // User::factory()->create([
+        //     'name' => 'admin',
+        //     'email' => 'admin@example.com',
+        //     'role' => 'admin'
+        // ]);
+        // User::factory()->create([
+        //     'name' => 'user',
+        //     'email' => 'user@example.com',
+        //     'role' => 'user'
+        // ]);
+        for ($i = 1; $i <= 20; $i++) {
             # code...
             Category::create([
-                'name'=>'Category'.$i
+                'name' => 'Category' . $i
             ]);
         }
-        for ($i=1; $i <=10; $i++) { 
+        for ($i = 1; $i <= 10; $i++) {
             Atrebute::create([
-                'category_id'=>rand(1,10),
-                'name'=>'Atrebut'.$i
+                'category_id' => rand(1, 10),
+                'name' => 'Atrebut' . $i
             ]);
         }
-        for ($i=1; $i <=30; $i++) { 
+        for ($i = 1; $i <= 30; $i++) {
             Character::create([
-                'name'=>'Character'.$i
+                'name' => 'Character' . $i
             ]);
         }
-        for ($i=1; $i <=50 ; $i++) { 
+        for ($i = 1; $i <= 50; $i++) {
             AtrebuteCharacter::create([
-                'atrebute_id'=>rand(1,10),
-                'character_id'=>rand(1,30)
+                'atrebute_id' => rand(1, 10),
+                'character_id' => rand(1, 30)
             ]);
         }
-        for ($i=1; $i < 10; $i++) { 
+        for ($i = 1; $i <= 20; $i++) {
             PostCategory::create([
-                'name'=>'PostCategory'.$i
+                'name' => 'PostCategory' . $i
             ]);
         }
-        for ($i=1; $i <=10; $i++) { 
+        for ($i = 1; $i <= 10; $i++) {
             Post::create([
-                'category_id'=>rand(1,10),
-                'title'=>'title'.$i,
-                'description'=>'description'.$i,
-                'text'=>'text'.$i,
-                'file'=>'file'.$i
+                'categorya_id' => rand(1, 9),
+                'title' => 'title' . $i,
+                'description' => 'description' . $i,
+                'text' => 'text' . $i,
+                'file' => 'file' . $i
             ]);
         }
     }
-
 }
