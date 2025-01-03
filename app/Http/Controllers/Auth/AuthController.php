@@ -48,4 +48,26 @@ class AuthController extends Controller
         }
         return response()->json(['error'=>'Unautherized'],401);
     }
+    public function edituser(Request $request)
+    {
+       // return response()->json(['success'=>'sdfasdf']);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:8',
+        ]);
+        $user = $request->user(); 
+        if ($user) {
+            $user->name = $request->name;
+            $user->password = bcrypt($request->password); 
+            $user->save();
+    
+            return response()->json([
+                'message' => 'success',
+                'user' => $user,
+            ]);
+        } else {
+            return response()->json(['error' => 'User not found'], 404);
+        }
+    }
+    
 }

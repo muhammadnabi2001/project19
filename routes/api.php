@@ -20,6 +20,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/post', [PostController::class, 'index']);
     Route::post('taskstore', [TaskController::class, 'store']);
     Route::get('/observe', [TaskController::class, 'show']); //->middleware(Check::class.':admin');
+    Route::post('comment',[TaskController::class,'comment']);
+    Route::post('edituser',[AuthController::class,'edituser']);
 });
 
 Route::post('/category', [CategoryController::class, 'store']);
@@ -35,3 +37,4 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('resetpassword', [VerfyUserController::class, 'index']);
 Route::post('newpassword',[VerfyUserController::class,'newpassword']);
+
